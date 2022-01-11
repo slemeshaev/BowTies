@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		66CECF28278E090300BED3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF27278E090300BED3BC /* AppDelegate.swift */; };
 		66CECF2A278E090300BED3BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF29278E090300BED3BC /* SceneDelegate.swift */; };
-		66CECF2C278E090300BED3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF2B278E090300BED3BC /* ViewController.swift */; };
-		66CECF2F278E090300BED3BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF2D278E090300BED3BC /* Main.storyboard */; };
 		66CECF32278E090300BED3BC /* BowTies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF30278E090300BED3BC /* BowTies.xcdatamodeld */; };
 		66CECF34278E090500BED3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF33278E090500BED3BC /* Assets.xcassets */; };
 		66CECF37278E090500BED3BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF35278E090500BED3BC /* LaunchScreen.storyboard */; };
+		66CECF3F278E09B500BED3BC /* BowTiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF3E278E09B500BED3BC /* BowTiesController.swift */; };
+		66CECF41278E09D100BED3BC /* BowTiesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF40278E09D100BED3BC /* BowTiesView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66CECF24278E090300BED3BC /* BowTies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowTies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CECF27278E090300BED3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66CECF29278E090300BED3BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		66CECF2B278E090300BED3BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		66CECF2E278E090300BED3BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66CECF31278E090300BED3BC /* BowTies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BowTies.xcdatamodel; sourceTree = "<group>"; };
 		66CECF33278E090500BED3BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66CECF36278E090500BED3BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66CECF38278E090500BED3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CECF3E278E09B500BED3BC /* BowTiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowTiesController.swift; sourceTree = "<group>"; };
+		66CECF40278E09D100BED3BC /* BowTiesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BowTiesView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +58,56 @@
 		66CECF26278E090300BED3BC /* BowTies */ = {
 			isa = PBXGroup;
 			children = (
+				66CECF45278E0C0100BED3BC /* Screens */,
+				66CECF44278E0BF700BED3BC /* Utilities */,
+			);
+			path = BowTies;
+			sourceTree = "<group>";
+		};
+		66CECF44278E0BF700BED3BC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				66CECF48278E0D7C00BED3BC /* Screenshots */,
 				66CECF27278E090300BED3BC /* AppDelegate.swift */,
 				66CECF29278E090300BED3BC /* SceneDelegate.swift */,
-				66CECF2B278E090300BED3BC /* ViewController.swift */,
-				66CECF2D278E090300BED3BC /* Main.storyboard */,
 				66CECF33278E090500BED3BC /* Assets.xcassets */,
-				66CECF35278E090500BED3BC /* LaunchScreen.storyboard */,
 				66CECF38278E090500BED3BC /* Info.plist */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		66CECF45278E0C0100BED3BC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				66CECF47278E0C1B00BED3BC /* Launch */,
+				66CECF46278E0C1100BED3BC /* BowTies */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		66CECF46278E0C1100BED3BC /* BowTies */ = {
+			isa = PBXGroup;
+			children = (
+				66CECF3E278E09B500BED3BC /* BowTiesController.swift */,
+				66CECF40278E09D100BED3BC /* BowTiesView.storyboard */,
 				66CECF30278E090300BED3BC /* BowTies.xcdatamodeld */,
 			);
 			path = BowTies;
+			sourceTree = "<group>";
+		};
+		66CECF47278E0C1B00BED3BC /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				66CECF35278E090500BED3BC /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		66CECF48278E0D7C00BED3BC /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +139,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = slemeshaev;
 				TargetAttributes = {
 					66CECF23278E090300BED3BC = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -130,7 +171,7 @@
 			files = (
 				66CECF37278E090500BED3BC /* LaunchScreen.storyboard in Resources */,
 				66CECF34278E090500BED3BC /* Assets.xcassets in Resources */,
-				66CECF2F278E090300BED3BC /* Main.storyboard in Resources */,
+				66CECF41278E09D100BED3BC /* BowTiesView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +182,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66CECF2C278E090300BED3BC /* ViewController.swift in Sources */,
 				66CECF32278E090300BED3BC /* BowTies.xcdatamodeld in Sources */,
 				66CECF28278E090300BED3BC /* AppDelegate.swift in Sources */,
 				66CECF2A278E090300BED3BC /* SceneDelegate.swift in Sources */,
+				66CECF3F278E09B500BED3BC /* BowTiesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		66CECF2D278E090300BED3BC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66CECF2E278E090300BED3BC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		66CECF35278E090500BED3BC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,12 +328,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5GWB2H668N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BowTies/Info.plist;
+				INFOPLIST_FILE = BowTies/Utilities/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bow Ties";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = BowTiesView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +345,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,12 +358,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5GWB2H668N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BowTies/Info.plist;
+				INFOPLIST_FILE = BowTies/Utilities/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bow Ties";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = BowTiesView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,7 +375,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
