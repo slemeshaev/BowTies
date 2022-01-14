@@ -14,6 +14,7 @@
 		66CECF37278E090500BED3BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF35278E090500BED3BC /* LaunchScreen.storyboard */; };
 		66CECF3F278E09B500BED3BC /* BowTiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF3E278E09B500BED3BC /* BowTiesController.swift */; };
 		66CECF41278E09D100BED3BC /* BowTiesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF40278E09D100BED3BC /* BowTiesView.storyboard */; };
+		66CECF4A2790881D00BED3BC /* BowTiesData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66CECF492790881D00BED3BC /* BowTiesData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		66CECF38278E090500BED3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66CECF3E278E09B500BED3BC /* BowTiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowTiesController.swift; sourceTree = "<group>"; };
 		66CECF40278E09D100BED3BC /* BowTiesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BowTiesView.storyboard; sourceTree = "<group>"; };
+		66CECF492790881D00BED3BC /* BowTiesData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BowTiesData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				66CECF48278E0D7C00BED3BC /* Screenshots */,
 				66CECF27278E090300BED3BC /* AppDelegate.swift */,
 				66CECF29278E090300BED3BC /* SceneDelegate.swift */,
+				66CECF492790881D00BED3BC /* BowTiesData.plist */,
 				66CECF33278E090500BED3BC /* Assets.xcassets */,
 				66CECF38278E090500BED3BC /* Info.plist */,
 			);
@@ -171,6 +174,7 @@
 			files = (
 				66CECF37278E090500BED3BC /* LaunchScreen.storyboard in Resources */,
 				66CECF34278E090500BED3BC /* Assets.xcassets in Resources */,
+				66CECF4A2790881D00BED3BC /* BowTiesData.plist in Resources */,
 				66CECF41278E09D100BED3BC /* BowTiesView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
