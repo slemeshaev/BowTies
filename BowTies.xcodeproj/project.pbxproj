@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661C7E87279203E60088F613 /* BowTie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C7E85279203E60088F613 /* BowTie+CoreDataClass.swift */; };
+		661C7E88279203E60088F613 /* BowTie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C7E86279203E60088F613 /* BowTie+CoreDataProperties.swift */; };
+		661C7E8B27934D2B0088F613 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C7E8A27934D2B0088F613 /* UIColor.swift */; };
 		66CECF28278E090300BED3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF27278E090300BED3BC /* AppDelegate.swift */; };
 		66CECF2A278E090300BED3BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF29278E090300BED3BC /* SceneDelegate.swift */; };
 		66CECF32278E090300BED3BC /* BowTies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66CECF30278E090300BED3BC /* BowTies.xcdatamodeld */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661C7E85279203E60088F613 /* BowTie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BowTie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		661C7E86279203E60088F613 /* BowTie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BowTie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		661C7E8A27934D2B0088F613 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		66CECF24278E090300BED3BC /* BowTies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowTies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CECF27278E090300BED3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66CECF29278E090300BED3BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		661C7E8927934D1C0088F613 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				661C7E8A27934D2B0088F613 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		66CECF1B278E090300BED3BC = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +83,7 @@
 		66CECF44278E0BF700BED3BC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				661C7E8927934D1C0088F613 /* Extensions */,
 				66CECF48278E0D7C00BED3BC /* Screenshots */,
 				66CECF27278E090300BED3BC /* AppDelegate.swift */,
 				66CECF29278E090300BED3BC /* SceneDelegate.swift */,
@@ -94,6 +109,8 @@
 				66CECF3E278E09B500BED3BC /* BowTiesController.swift */,
 				66CECF40278E09D100BED3BC /* BowTiesView.storyboard */,
 				66CECF30278E090300BED3BC /* BowTies.xcdatamodeld */,
+				661C7E85279203E60088F613 /* BowTie+CoreDataClass.swift */,
+				661C7E86279203E60088F613 /* BowTie+CoreDataProperties.swift */,
 			);
 			path = BowTies;
 			sourceTree = "<group>";
@@ -187,6 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CECF32278E090300BED3BC /* BowTies.xcdatamodeld in Sources */,
+				661C7E8B27934D2B0088F613 /* UIColor.swift in Sources */,
+				661C7E88279203E60088F613 /* BowTie+CoreDataProperties.swift in Sources */,
+				661C7E87279203E60088F613 /* BowTie+CoreDataClass.swift in Sources */,
 				66CECF28278E090300BED3BC /* AppDelegate.swift in Sources */,
 				66CECF2A278E090300BED3BC /* SceneDelegate.swift in Sources */,
 				66CECF3F278E09B500BED3BC /* BowTiesController.swift in Sources */,
