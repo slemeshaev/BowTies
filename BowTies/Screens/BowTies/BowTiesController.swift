@@ -27,6 +27,28 @@ class BowTiesController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        managedContext = appDelegate?.persistentContainer.viewContext
+        
+        insertSampleData()
+        
+        let request: NSFetchRequest<BowTie> = BowTie.fetchRequest()
+        let firstTitle = segmentedControl.titleForSegment(at: 0)!
+        request.predicate = NSPredicate(format: "%K = %@",
+                                        argumentArray: [#keyPath(BowTie.searchKey), firstTitle])
+        
+        do {
+            let results = try managedContext.fetch(request)
+            
+            guard let first = results.first else {
+                return
+            }
+            
+            populate(bowTie: first)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
     
     // MARK: - IBActions
@@ -96,4 +118,27 @@ class BowTiesController: UIViewController {
         try! managedContext.save()
     }
     
+    private func populate(bowTie: BowTie) {
+        guard let imageData = bowTie.imageData as Data?,
+              let lastWorn = bowTie.lastWorn as Date?,
+              let tintColor = bowTie.tintColor as? UIColor else {
+                  return
+              }
+        
+        imageView.image = UIImage(data: imageData)
+        nameLabel.text = bowTie.name
+        ratingLabel.text = "Rating: \(bowTie.rating)/5"
+        
+        timesWornLabel.text = "# times worn: \(bowTie.timesWorn)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        lastWornLabel.text =
+        "Last worn: " + dateFormatter.string(from: lastWorn)
+        
+        favoriteLabel.isHidden = !bowTie.isFavorite
+        view.tintColor = tintColor
+    }
 }
