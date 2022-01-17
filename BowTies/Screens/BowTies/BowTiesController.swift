@@ -27,9 +27,7 @@ class BowTiesController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        managedContext = appDelegate?.persistentContainer.viewContext
+        managedContext = managedObjectContext()
         
         insertSampleData()
         
@@ -140,5 +138,10 @@ class BowTiesController: UIViewController {
         
         favoriteLabel.isHidden = !bowTie.isFavorite
         view.tintColor = tintColor
+    }
+    
+    private func managedObjectContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
 }
