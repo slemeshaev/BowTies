@@ -28,9 +28,25 @@ class BowTiesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         managedContext = managedObjectContext()
-        
         insertSampleData()
-        
+        fetchData()
+    }
+    
+    // MARK: - IBActions
+    @IBAction private func segmentedControl(_ sender: UISegmentedControl) {
+        print(#function)
+    }
+    
+    @IBAction private func wear(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @IBAction private func rate(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    // MARK: - Private
+    private func fetchData() {
         let request: NSFetchRequest<BowTie> = BowTie.fetchRequest()
         let firstTitle = segmentedControl.titleForSegment(at: 0)!
         request.predicate = NSPredicate(format: "%K = %@",
@@ -49,20 +65,6 @@ class BowTiesController: UIViewController {
         }
     }
     
-    // MARK: - IBActions
-    @IBAction private func segmentedControl(_ sender: UISegmentedControl) {
-        print(#function)
-    }
-    
-    @IBAction private func wear(_ sender: UIButton) {
-        print(#function)
-    }
-    
-    @IBAction private func rate(_ sender: UIButton) {
-        print(#function)
-    }
-    
-    // MARK: - Private
     private func insertSampleData() {
         
         let fetch: NSFetchRequest<BowTie> = BowTie.fetchRequest()
