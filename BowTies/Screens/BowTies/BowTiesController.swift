@@ -54,12 +54,7 @@ class BowTiesController: UIViewController {
         
         do {
             let results = try managedContext.fetch(request)
-            
-            guard let first = results.first else {
-                return
-            }
-            
-            populate(bowTie: first)
+            populate(bowTie: results.first!)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -76,19 +71,12 @@ class BowTiesController: UIViewController {
             return
         }
         
-        guard let path = Bundle.main.path(forResource: "SampleData", ofType: "plist") else {
-            return
-        }
+        let path = Bundle.main.path(forResource: "BowTiesData", ofType: "plist")
         
-        guard let dataArray = NSArray(contentsOfFile: path) else {
-            return
-        }
+        let dataArray = NSArray(contentsOfFile: path!)!
         
         for dictionary in dataArray {
-            guard let entity = NSEntityDescription.entity(forEntityName: "BowTie", in: managedContext) else {
-                return
-            }
-            
+            let entity = NSEntityDescription.entity(forEntityName: "BowTie", in: managedContext)!
             let bowTie = BowTie(entity: entity, insertInto: managedContext)
             let bowTieDictionary = dictionary as! [String: Any]
             
@@ -100,11 +88,8 @@ class BowTiesController: UIViewController {
             let colorDictionary = bowTieDictionary["tintColor"] as! [String: Any]
             bowTie.tintColor = UIColor.color(dictionary: colorDictionary)
             
-            guard let imageName = bowTieDictionary["imageName"] as? String else {
-                return
-            }
-            
-            let image = UIImage(named: imageName)
+            let imageName = bowTieDictionary["imageName"] as? String
+            let image = UIImage(named: imageName!)
             
             bowTie.imageData = image?.pngData()
             bowTie.lastWorn = bowTieDictionary["lastWorn"] as? Date
@@ -115,7 +100,7 @@ class BowTiesController: UIViewController {
             bowTie.url = URL(string: bowTieDictionary["url"] as! String)
         }
         
-        try! managedContext.save()
+        try? managedContext.save()
     }
     
     private func populate(bowTie: BowTie) {
@@ -128,17 +113,16 @@ class BowTiesController: UIViewController {
         imageView.image = UIImage(data: imageData)
         nameLabel.text = bowTie.name
         ratingLabel.text = "Rating: \(bowTie.rating)/5"
-        
         timesWornLabel.text = "# times worn: \(bowTie.timesWorn)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         
-        lastWornLabel.text =
-        "Last worn: " + dateFormatter.string(from: lastWorn)
+        lastWornLabel.text = "Last worn: " + dateFormatter.string(from: lastWorn)
         
         favoriteLabel.isHidden = !bowTie.isFavorite
+        
         view.tintColor = tintColor
     }
     
