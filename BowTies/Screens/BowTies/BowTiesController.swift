@@ -23,6 +23,7 @@ class BowTiesController: UIViewController {
     
     // MARK: - Properties
     private var managedContext: NSManagedObjectContext!
+    private var currentBowTie: BowTie!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,11 +39,39 @@ class BowTiesController: UIViewController {
     }
     
     @IBAction private func wear(_ sender: UIButton) {
-        print(#function)
+        let times = currentBowTie.timesWorn
+        currentBowTie.timesWorn = times + 1
+        currentBowTie.lastWorn = Date()
+        
+        do {
+            try managedContext.save()
+            populate(bowTie: currentBowTie)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
     
     @IBAction private func rate(_ sender: UIButton) {
-        print(#function)
+        let alertController = UIAlertController(title: "New Rating",
+                                                message: "Rate this bow tie",
+                                                preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.keyboardType = .decimalPad
+        }
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
+            if let textField = alertController.textFields?.first {
+                self.update(rating: textField.text)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
     }
     
     // MARK: - Private
@@ -54,6 +83,7 @@ class BowTiesController: UIViewController {
         
         do {
             let results = try managedContext.fetch(request)
+            currentBowTie = results.first
             populate(bowTie: results.first!)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -61,7 +91,6 @@ class BowTiesController: UIViewController {
     }
     
     private func insertSampleData() {
-        
         let fetch: NSFetchRequest<BowTie> = BowTie.fetchRequest()
         fetch.predicate = NSPredicate(format: "searchKey != nil")
         
@@ -86,7 +115,7 @@ class BowTiesController: UIViewController {
             bowTie.rating = bowTieDictionary["rating"] as! Double
             
             let colorDictionary = bowTieDictionary["tintColor"] as! [String: Any]
-            bowTie.tintColor = UIColor.color(dictionary: colorDictionary)
+            bowTie.tintColor = UIColor.from(dictionary: colorDictionary)
             
             let imageName = bowTieDictionary["imageName"] as? String
             let image = UIImage(named: imageName!)
@@ -113,7 +142,7 @@ class BowTiesController: UIViewController {
         imageView.image = UIImage(data: imageData)
         nameLabel.text = bowTie.name
         ratingLabel.text = "Rating: \(bowTie.rating)/5"
-        timesWornLabel.text = "# times worn: \(bowTie.timesWorn)"
+        timesWornLabel.text = "Times worn: \(bowTie.timesWorn)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -124,6 +153,20 @@ class BowTiesController: UIViewController {
         favoriteLabel.isHidden = !bowTie.isFavorite
         
         view.tintColor = tintColor
+    }
+    
+    private func update(rating: String?) {
+        guard let ratingString = rating, let rating = Double(ratingString) else {
+            return
+        }
+        
+        do {
+            currentBowTie.rating = rating
+            try managedContext.save()
+            populate(bowTie: currentBowTie)
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
     
     private func managedObjectContext() -> NSManagedObjectContext {

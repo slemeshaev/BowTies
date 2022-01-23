@@ -10,8 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    static func color(dictionary: [String: Any]) -> UIColor? {
-        
+    static func from(dictionary: [String: Any]) -> UIColor? {
         guard let red = dictionary["red"] as? NSNumber,
               let green = dictionary["green"] as? NSNumber,
               let blue = dictionary["blue"] as? NSNumber else {
