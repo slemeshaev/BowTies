@@ -3,6 +3,7 @@
 //  BowTies
 //
 //  Created by Stanislav Lemeshaev on 11.01.2022.
+//  Copyright © 2022 slemeshaev. All rights reserved.
 //
 
 import UIKit
