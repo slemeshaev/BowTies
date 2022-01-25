@@ -166,7 +166,13 @@ class BowTiesController: UIViewController {
             try managedContext.save()
             populate(bowTie: currentBowTie)
         } catch let error as NSError {
-            print("Could not save \(error), \(error.userInfo)")
+            if error.domain == NSCocoaErrorDomain &&
+                (error.code == NSValidationNumberTooLargeError) ||
+                (error.code == NSValidationNumberTooSmallError) {
+                rate(rateButton)
+            } else {
+                print("Could not save \(error), \(error.userInfo)")
+            }
         }
     }
     
