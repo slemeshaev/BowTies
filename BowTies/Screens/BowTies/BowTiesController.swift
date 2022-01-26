@@ -36,7 +36,21 @@ class BowTiesController: UIViewController {
     
     // MARK: - IBActions
     @IBAction private func segmentedControl(_ sender: UISegmentedControl) {
-        print(#function)
+        guard let selectedValue = sender.titleForSegment(at: sender.selectedSegmentIndex) else {
+            return
+        }
+        
+        let request: NSFetchRequest<BowTie> = BowTie.fetchRequest()
+        request.predicate = NSPredicate(format: "%K = %@",
+                                        argumentArray: [#keyPath(BowTie.searchKey), selectedValue])
+        
+        do {
+            let results = try managedContext.fetch(request)
+            currentBowTie = results.first
+            populate(bowTie: currentBowTie)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
     
     @IBAction private func wear(_ sender: UIButton) {
