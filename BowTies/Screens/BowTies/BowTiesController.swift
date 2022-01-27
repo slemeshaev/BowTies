@@ -23,13 +23,13 @@ class BowTiesController: UIViewController {
     @IBOutlet private weak var rateButton: UIButton!
     
     // MARK: - Properties
-    private var managedContext: NSManagedObjectContext!
+    private var context: NSManagedObjectContext!
     private var currentBowTie: BowTie!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        managedContext = managedObjectContext()
+        context = managedObjectContext()
         insertSampleData()
         fetchData()
     }
@@ -45,7 +45,7 @@ class BowTiesController: UIViewController {
                                         argumentArray: [#keyPath(BowTie.searchKey), selectedValue])
         
         do {
-            let results = try managedContext.fetch(request)
+            let results = try context.fetch(request)
             currentBowTie = results.first
             populate(bowTie: currentBowTie)
         } catch let error as NSError {
@@ -59,7 +59,7 @@ class BowTiesController: UIViewController {
         currentBowTie.lastWorn = Date()
         
         do {
-            try managedContext.save()
+            try context.save()
             populate(bowTie: currentBowTie)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -97,7 +97,7 @@ class BowTiesController: UIViewController {
                                         argumentArray: [#keyPath(BowTie.searchKey), firstTitle])
         
         do {
-            let results = try managedContext.fetch(request)
+            let results = try context.fetch(request)
             currentBowTie = results.first
             populate(bowTie: results.first!)
         } catch let error as NSError {
@@ -105,11 +105,27 @@ class BowTiesController: UIViewController {
         }
     }
     
+    private func removeAll() {
+        let request: NSFetchRequest<BowTie> = BowTie.fetchRequest()
+        
+        if let objects = try? context.fetch(request) {
+            for object in objects {
+                context.delete(object)
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     private func insertSampleData() {
         let fetch: NSFetchRequest<BowTie> = BowTie.fetchRequest()
         fetch.predicate = NSPredicate(format: "searchKey != nil")
         
-        let count = try! managedContext.count(for: fetch)
+        let count = try! context.count(for: fetch)
         
         if count > 0 {
             return
@@ -120,8 +136,8 @@ class BowTiesController: UIViewController {
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dictionary in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "BowTie", in: managedContext)!
-            let bowTie = BowTie(entity: entity, insertInto: managedContext)
+            let entity = NSEntityDescription.entity(forEntityName: "BowTie", in: context)!
+            let bowTie = BowTie(entity: entity, insertInto: context)
             let bowTieDictionary = dictionary as! [String: Any]
             
             bowTie.id = UUID(uuidString: bowTieDictionary["id"] as! String)
@@ -144,7 +160,7 @@ class BowTiesController: UIViewController {
             bowTie.url = URL(string: bowTieDictionary["url"] as! String)
         }
         
-        try? managedContext.save()
+        try? context.save()
     }
     
     private func populate(bowTie: BowTie) {
@@ -177,7 +193,7 @@ class BowTiesController: UIViewController {
         
         do {
             currentBowTie.rating = rating
-            try managedContext.save()
+            try context.save()
             populate(bowTie: currentBowTie)
         } catch let error as NSError {
             if error.domain == NSCocoaErrorDomain &&

@@ -24,7 +24,7 @@
                                     <segment title="G"/>
                                     <segment title="B"/>
                                     <segment title="I"/>
-                                    <segment title="V"/>
+                                    <segment title="P"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControl:" destination="Y6W-OH-hqX" eventType="valueChanged" id="DFI-yo-9Et"/>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="-59"/>
+            <point key="canvasLocation" x="33" y="-61"/>
         </scene>
     </scenes>
 </document>

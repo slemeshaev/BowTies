@@ -14,11 +14,11 @@
 		<key>tintColor</key>
 		<dict>
 			<key>red</key>
-			<integer>239</integer>
+			<integer>255</integer>
 			<key>green</key>
-			<integer>48</integer>
+			<integer>0</integer>
 			<key>blue</key>
-			<integer>36</integer>
+			<integer>0</integer>
 		</dict>
 		<key>imageName</key>
 		<string>red.png</string>
@@ -45,9 +45,9 @@
 			<key>red</key>
 			<integer>255</integer>
 			<key>green</key>
-			<integer>160</integer>
+			<integer>106</integer>
 			<key>blue</key>
-			<integer>122</integer>
+			<integer>0</integer>
 		</dict>
 		<key>imageName</key>
 		<string>orange.png</string>
@@ -72,11 +72,11 @@
 		<key>tintColor</key>
 		<dict>
 			<key>red</key>
-			<integer>254</integer>
+			<integer>255</integer>
 			<key>green</key>
-			<integer>216</integer>
+			<integer>231</integer>
 			<key>blue</key>
-			<integer>93</integer>
+			<integer>94</integer>
 		</dict>
 		<key>imageName</key>
 		<string>yellow.png</string>
@@ -101,11 +101,11 @@
 		<key>tintColor</key>
 		<dict>
 			<key>red</key>
-			<integer>144</integer>
+			<integer>113</integer>
 			<key>green</key>
-			<integer>238</integer>
+			<integer>255</integer>
 			<key>blue</key>
-			<integer>144</integer>
+			<integer>0</integer>
 		</dict>
 		<key>imageName</key>
 		<string>green.png</string>
@@ -132,9 +132,9 @@
 			<key>red</key>
 			<integer>0</integer>
 			<key>green</key>
-			<integer>71</integer>
+			<integer>0</integer>
 			<key>blue</key>
-			<integer>171</integer>
+			<integer>255</integer>
 		</dict>
 		<key>imageName</key>
 		<string>blue.png</string>
@@ -159,11 +159,11 @@
 		<key>tintColor</key>
 		<dict>
 			<key>red</key>
-			<integer>111</integer>
-			<key>green</key>
 			<integer>0</integer>
+			<key>green</key>
+			<integer>77</integer>
 			<key>blue</key>
-			<integer>255</integer>
+			<integer>101</integer>
 		</dict>
 		<key>imageName</key>
 		<string>indigo.png</string>
@@ -180,22 +180,22 @@
 		<key>id</key>
 		<string>25A2EB8E-59D2-4905-812A-ACD57D644BA0</string>
 		<key>name</key>
-		<string>Violet Bow Tie</string>
+		<string>Purple Bow Tie</string>
 		<key>searchKey</key>
-		<string>V</string>
+		<string>P</string>
 		<key>rating</key>
-		<real>4</real>
+		<integer>4</integer>
 		<key>tintColor</key>
 		<dict>
 			<key>red</key>
-			<integer>143</integer>
+			<integer>153</integer>
 			<key>green</key>
-			<integer>0</integer>
+			<integer>41</integer>
 			<key>blue</key>
-			<integer>255</integer>
+			<integer>189</integer>
 		</dict>
 		<key>imageName</key>
-		<string>violet.png</string>
+		<string>purple.png</string>
 		<key>lastWorn</key>
 		<date>2014-05-29T18:15:24Z</date>
 		<key>timesWorn</key>
