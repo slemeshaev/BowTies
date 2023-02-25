@@ -4,7 +4,7 @@ The main purpose of this application is to show how you can perform simple opera
 
 # Installation
 
-Use Xcode 13 to install
+Use Xcode 14 to install
 
 # Screenshots
 
